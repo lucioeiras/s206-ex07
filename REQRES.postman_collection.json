@@ -57,6 +57,13 @@
 								"exec": [
 									"pm.test(\"Status code is 201\", function () {",
 									"    pm.response.to.have.status(201);",
+									"});",
+									"",
+									"pm.test(\"Returned name, job and createdAt\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.name).to.equal('Kiko');",
+									"    pm.expect(jsonData.job).to.equal('Professor');",
+									"    pm.expect(jsonData.createdAt).to.not.equal(undefined);",
 									"});"
 								],
 								"type": "text/javascript",
@@ -94,7 +101,14 @@
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
-									"});"
+									"});",
+									"",
+									"pm.test(\"Returned ID and token\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.id).to.not.equal(undefined);",
+									"    pm.expect(jsonData.token).to.not.equal(undefined);",
+									"});",
+									""
 								],
 								"type": "text/javascript",
 								"packages": {}
@@ -136,6 +150,13 @@
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Returned name, job and updatedAt\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.name).to.not.equal(undefined);",
+									"    pm.expect(jsonData.job).to.not.equal(undefined);",
+									"    pm.expect(jsonData.updatedAt).to.not.equal(undefined);",
 									"});"
 								],
 								"type": "text/javascript",
@@ -181,7 +202,12 @@
 								"exec": [
 									"pm.test(\"Status code is 204\", function () {",
 									"    pm.response.to.have.status(204);",
-									"});"
+									"});",
+									"",
+									"pm.test(\"Return nothing\", function () {",
+									"    pm.expect(pm.response.text()).to.equal('');",
+									"});",
+									""
 								],
 								"type": "text/javascript",
 								"packages": {}
